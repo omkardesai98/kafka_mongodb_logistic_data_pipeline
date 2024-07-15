@@ -16,7 +16,7 @@
             "name":"status",
             "type":"string"
         },        {
-            "name":"timestamp   ",
+            "name":"timestamp",
             "type":"string"
         }
     ]
