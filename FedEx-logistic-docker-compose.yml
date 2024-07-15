@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  producer:
+    build:
+      context: .
+      dockerfile: producer.dockerfile
+
+
+  consumer1:
+    build:
+      context: .
+      dockerfile: consumer.dockerfile
+
+
+  consumer2:
+    build:
+      context: .
+      dockerfile: consumer.dockerfile
+
+
+  consumer3:
+    build:
+      context: .
+      dockerfile: consumer.dockerfile
+
