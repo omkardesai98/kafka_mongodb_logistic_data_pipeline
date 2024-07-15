@@ -19,7 +19,7 @@ kafka_config = {
     'sasl.username': os.environ.get('sasl.username'),
     'sasl.password': os.environ.get('sasl.password'),
     'group.id': 'group1',
-    'auto.offset.reset': 'latest'
+    'auto.offset.reset': 'earliest'
 }
 
 # Date parsing function with added ISO 8601 format
