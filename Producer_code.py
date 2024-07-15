@@ -3,7 +3,6 @@ from faker import Faker
 from dotenv import load_dotenv
 import random
 import os
-from pymongo import MongoClient
 from confluent_kafka import SerializingProducer
 from confluent_kafka.schema_registry.avro import AvroSerializer
 from confluent_kafka.serialization import StringSerializer
@@ -46,7 +45,11 @@ def delivery_report(err,msg):
         print(f'message delivered successfully on partition {msg.partition()} to the topic {msg.topic()} at offset {msg.offset()}')
 
 # schema registry 
-schema_registry_client = SchemaRegistryClient({'url':os.environ.get('schema_url'),'basic.auth.user.info':f'{os.environ.get('schema_api_key')}:{os.environ.get('schema_api_secret_key')}'})
+schema_registry_client = SchemaRegistryClient({
+    'url': os.environ.get('schema_url'),
+    'basic.auth.user.info': f"{os.environ.get('schema_api_key')}:{os.environ.get('schema_api_secret_key')}"
+})
+
 
 subject_name = 'Fedex_data-value'
 schema_str = schema_registry_client.get_latest_version(subject_name).schema.schema_str
